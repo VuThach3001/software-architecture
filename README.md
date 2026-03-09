@@ -1,0 +1,1 @@
+Place to store software architecture insprired from BOSCH software architecture
