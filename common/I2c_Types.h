@@ -9,6 +9,7 @@
  * 
  */
 
+/* TRACE[SWS_Std_00014]: protected against multiple inclusion. */
 #ifndef I2C_TYPES_H
 #define I2C_TYPES_H
 
