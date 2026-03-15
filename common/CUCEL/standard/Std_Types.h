@@ -5,6 +5,7 @@
 #include "Platform_Types.h"
 
 
+#define E_OK       0x00u   /* No error occurs            */
 #define E_NOT_OK   0x01u   /* An error occurs            */
 
 /* TRACE[SWS_Std_00007]: STD_HIGH and STD_Low */
