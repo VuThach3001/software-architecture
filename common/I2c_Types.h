@@ -1,39 +1,106 @@
 /**
- * @file I2c_Types.h
- * @author Thach Nguyen Ba Vu (https://github.com/VuThach3001)
- * @brief Base data types for I2C driver.
- * @version 0.1
- * @date 2026-03-10
- * 
- * @copyright Copyright (c) 2026
- * 
+ * @file       I2c_Types.h
+ * @copyright  Copyright (C) 2026 ESP32-TYH5HC. All rights reserved.
+ * @license    This project is released under the ESP32-TYH5HC License.
+ * @version    1.0.0
+ * @date       2026-03
+ * @author     TYH5HC
+ * @brief      Base datatypes for I2C driver
+ * @note       None
  */
 
-/* TRACE[SWS_Std_00014]: protected against multiple inclusion. */
-#ifndef I2C_TYPES_H
-#define I2C_TYPES_H
+/* Define to prevent recursive inclusion ------------------------------ */
+#ifndef __I2C_TYPES_H
+#define __I2C_TYPES_H
 
-/* Data type describes the possible driver states */
+/* Includes ----------------------------------------------------------- */
+#include "Std_Types.h"
+/* Public defines ----------------------------------------------------- */
+/* Public enumerate/structure ----------------------------------------- */
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00808]: Definition of datatype I2C_HwUnitType
+ * @details Specifies the identification (ID) for a I2C Hardware microcontroller peripheral (unit).
+ */
+typedef uint8 I2C_HwUnitType;
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00809]: Definition of datatype I2C_JobType
+ * @details This is the type for a Job identifier.
+ */
+typedef uint8 I2C_JobType;
+
+/**
+ * @brief
+ *
+ */
+typedef uint16 I2C_AddressType;
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00804] Definition of datatype I2C_DataType
+ * @details This type defines the data to be transmitted using the I2C Driver.
+ */
+typedef uint8 I2C_DataType;
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00805]: Definition of datatype I2C_DataPtrType
+ * @details Definition for the pointer type for general buffer handling.
+ *
+ */
+typedef uint8 *I2C_DataPtrType;
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00806] Definition of datatype I2C_DataConstPtrType
+ * @details Definition for the pointer type for TX buffer handling
+ *
+ */
+typedef const uint8 *I2C_DataConstPtrType;
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00801]: This type of external data structure shall contain the initialization data
+ * for the I2C Driver
+ * @details The contents of the initialization data structure are I2C specific
+ */
+typedef struct
+{
+    I2C_HwUnitType    hwUnit;     // I2C hardware unit identifier
+    uint32            baudRate;   // I2C communication speed in bits per second
+    I2C_AsyncModeType asyncMode;  // Asynchronous mode (polling or interrupt)
+
+} I2C_ConfigType;
+
 typedef enum
 {
-  I2C_UNINIT, /* I2C driver is not initialized */
-  I2C_IDLE,   /* I2C driver is idle */
-  I2C_BUSY,   /* At least one transfer is in progress. */
-} I2c_StatusType_ten;
+    I2C_UNINIT, /* I2C driver is not initialized */
+    I2C_IDLE,   /* I2C driver is idle */
+    I2C_BUSY,   /* At least one transfer is in progress. */
+} I2C_StatusType;
 
-/* This data type describes the possible sequence results */
+/**
+ * @brief TRACE[CP_SWS_I2C_00807]: Definition of datatype I2C_SequenceResultType
+ * @details This type defines a range of specific Sequences status for the I2C Driver.
+ */
 typedef enum
 {
-    I2C_SEQ_OK,             // Sequence transfer complete.
-    I2C_SEQ_PENDING,        // Sequence transfer pending.
-    I2C_SEQ_FAILED          // Sequence transfer has failed.
-} I2c_SeqResultType_ten;
+    I2C_SEQ_OK,       // 0x00: The last transmission of the Sequence hasbeen finished successfully.
+    I2C_SEQ_PENDING,  // 0x01: he I2C Driver is performing an I2C Sequence. The meaning of this status is
+                      // equal to I2C_BUSY.
+    I2C_SEQ_QUEUED,   // 0x02: An I2C Sequence is queued and waiting to be transmitted.
+    I2C_SEQ_FAILED,   // 0x03: An I2C Sequence encountered a NACK signal.
+    I2C_SEQ_NACK      // 0x04: The last transmission of the Sequence has failed.
+} I2C_SequenceResultType;
 
 // this data type describes the possible asynchronous modes
 typedef enum
 {
-    I2C_POLLING_MODE,       // Asynchronous transfer is ensured by polling.
-    I2C_INTERRUPT_MODE      // Asynchronous transfer is ensured by interrupts.
-} I2c_AsyncModeType_ten;
+    I2C_POLLING_MODE,   // Asynchronous transfer is ensured by polling.
+    I2C_INTERRUPT_MODE  // Asynchronous transfer is ensured by interrupts.
+} I2C_AsyncModeType;
+/* Public macros ------------------------------------------------------ */
+/* Public variables --------------------------------------------------- */
+/* Public function prototypes ----------------------------------------- */
 
-#endif /* I2C_TYPES_H */
+/* -------------------------------------------------------------------- */
+#endif /* __I2C_TYPES_H */
+
+/* End of file -------------------------------------------------------- */
