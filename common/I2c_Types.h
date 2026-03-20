@@ -15,8 +15,12 @@
 
 /* Includes ----------------------------------------------------------- */
 #include "Std_Types.h"
+#include "Port_Types.h"
+
 /* Public defines ----------------------------------------------------- */
 /* Public enumerate/structure ----------------------------------------- */
+
+typedef Port_PinType I2C_PortNumType;
 
 /**
  * @brief TRACE[CP_SWS_I2C_00808]: Definition of datatype I2C_HwUnitType
