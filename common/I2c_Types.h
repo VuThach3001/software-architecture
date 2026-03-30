@@ -73,21 +73,6 @@ typedef uint8 *I2C_DataPtrType;
  */
 typedef const uint8 *I2C_DataConstPtrType;
 
-/**
- * @brief TRACE[CP_SWS_I2C_00801]: This type of external data structure shall contain the initialization data
- * for the I2C Driver
- * @details The contents of the initialization data structure are I2C specific
- */
-typedef struct
-{
-    I2C_HwUnitType    hwUnit;     // I2C hardware unit identifier for the specific micro-controller
-    uint32            baudRate;   // I2C communication speed in bits per second
-    I2C_AsyncModeType asyncMode;  // Asynchronous mode (polling or interrupt)
-    I2C_PortNumType   i2c_port;   // I2C port number, `-1` for auto-detection based on the hardware unit
-    Port_PinType      scl_pin;    // GPIO pin number for SCL line
-    Port_PinType      sda_pin;    // GPIO pin number for SDA line
-} I2C_ConfigType;
-
 typedef enum
 {
     I2C_UNINIT, /* I2C driver is not initialized */
@@ -115,6 +100,21 @@ typedef enum
     I2C_POLLING_MODE,   // Asynchronous transfer is ensured by polling.
     I2C_INTERRUPT_MODE  // Asynchronous transfer is ensured by interrupts.
 } I2C_AsyncModeType;
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00801]: This type of external data structure shall contain the initialization data
+ * for the I2C Driver
+ * @details The contents of the initialization data structure are I2C specific
+ */
+typedef struct
+{
+    I2C_HwUnitType    hwUnit;     // I2C hardware unit identifier for the specific micro-controller
+    uint32            baudRate;   // I2C communication speed in bits per second
+    I2C_AsyncModeType asyncMode;  // Asynchronous mode (polling or interrupt)
+    I2C_PortNumType   i2c_port;   // I2C port number, `-1` for auto-detection based on the hardware unit
+    Port_PinType      scl_pin;    // GPIO pin number for SCL line
+    Port_PinType      sda_pin;    // GPIO pin number for SDA line
+} I2C_ConfigType;
 
 /* Public macros ------------------------------------------------------ */
 /* Public variables --------------------------------------------------- */

@@ -17,7 +17,7 @@ extern "C"
 
 /* Includes ----------------------------------------------------------- */
 #include "I2c.h"
-#include "driver/i2c_master.h"
+#include "driver/i2c_master.h" // Why I removed the driver/ then the I2C_CLK_SRC_DEFAULT is found? instead i keep it, it can not detect?
 #include "esp_err.h"
 
     /* Private defines ---------------------------------------------------- */
@@ -38,9 +38,9 @@ extern "C"
             .i2c_port = ConfigPtr->i2c_port,
             .sda_io_num = ConfigPtr->sda_pin,
             .scl_io_num = ConfigPtr->scl_pin,
-            .flag.enable_internal_pullup = true,
+            .flags.enable_internal_pullup = true,
         };
-        ESP_ERROR_CHECK(i2c_master_bus_create(&i2c_bus_config, &i2c_bus_handle));
+        ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_bus_config, &i2c_bus_handle));
     }
 
 #ifdef __cplusplus
