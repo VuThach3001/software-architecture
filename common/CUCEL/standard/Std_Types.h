@@ -17,6 +17,7 @@
 #include "Platform_Types.h"
 
 /* Public defines ----------------------------------------------------- */
+#define E_OK       0x00u /* No error occurs            */
 #define E_NOT_OK   0x01u /* An error occurs            */
 
 /* TRACE[SWS_Std_00007]: STD_HIGH and STD_Low */
@@ -32,9 +33,19 @@
 #define STD_OFF    0x00u /* Off state                  */
 
 /* Public enumerate/structure ----------------------------------------- */
+
+/**
+ * @brief TRACE[SWS_Std_00005]: Definition of datatype Std_ReturnType
+ * @details This type defines a range of specific return values for standard API functions.
+ */
+typedef uint8 Std_ReturnType;
+
 /* Public macros ------------------------------------------------------ */
 
-/*TRACE[SWS_Std_00031]: Definition of NULL pointer                     */
+/**
+ * @brief TRACE[SWS_Std_00031]: Definition of NULL pointer
+ * @details This macro defines a NULL pointer for standard API functions.
+ */
 #ifdef __cplusplus
 #define NULL_PTR (0)
 #else

@@ -1,41 +1,41 @@
 /**
- * @file       I2c.h
+ * @file       i2c_struct.h
  * @copyright  Copyright (C) 2026 ESP32-TYH5HC. All rights reserved.
  * @license    This project is released under the ESP32-TYH5HC License.
  * @version    1.0.0
  * @date       2026-03
  * @author     Thach Nguyen Ba Vu
- * @brief      Contain definition of I2C functions
+ * @brief      I2C struct for system on chip
  * @note       None
  */
 
 /* Define to prevent recursive inclusion ------------------------------ */
-#ifndef __I2C_H
-#define __I2C_H
+#ifndef __I2C_STRUCT_H
+#define __I2C_STRUCT_H
+
+/* Cross-language compatibility */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Includes ----------------------------------------------------------- */
-#include "I2c_Types.h"
+#include <stdint.h>
+#include <Platform_Types.h>
 /* Public defines ----------------------------------------------------- */
 /* Public enumerate/structure ----------------------------------------- */
+
+
+
 /* Public macros ------------------------------------------------------ */
 /* Public variables --------------------------------------------------- */
 /* Public function prototypes ----------------------------------------- */
 
-/**
- * @brief This service initializes the I2C Driver.
- * @details TRACE[CP_SWS_I2C_00820]: Definition of API function I2C_Init
- * @param ConfigPtr Pointer to I2C Driver configuration set.
- */
-void I2C_Init(const I2C_ConfigType *ConfigPtr);
 
-/**
- * @brief This service de-initializes the I2C Driver.
- * @details TRACE[CP_SWS_I2C_00821]: Definition of API function I2C_DeInit
- * @param void
- */
-void I2C_DeInit(void);
+#ifdef __cplusplus
+}
+#endif
 
 /* -------------------------------------------------------------------- */
-#endif /* __I2C_H */
+#endif /* __I2C_STRUCT_H */
 
 /* End of file -------------------------------------------------------- */

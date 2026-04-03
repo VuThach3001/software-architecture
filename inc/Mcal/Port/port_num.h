@@ -19,57 +19,56 @@ extern "C"
 {
 #endif
 
-    /* Includes ----------------------------------------------------------- */
+/* Includes ----------------------------------------------------------- */
+#include "Port_Types.h"
     /* Public defines ----------------------------------------------------- */
     /* Public enumerate/structure ----------------------------------------- */
 
-    /**
-     * @brief Port number
-     */
-    typedef enum
-    {
-        PORT_NUM_NC = -1, /*!< Use to signal not connected to S/W */
-        PORT_NUM_0  = 0,  /*!< PORT0, input and output */
-        PORT_NUM_1  = 1,  /*!< PORT1, input and output */
-        PORT_NUM_2  = 2,  /*!< PORT2, input and output */
-        PORT_NUM_3  = 3,  /*!< PORT3, input and output */
-        PORT_NUM_4  = 4,  /*!< PORT4, input and output */
-        PORT_NUM_5  = 5,  /*!< PORT5, input and output */
-        PORT_NUM_6  = 6,  /*!< PORT6, input and output */
-        PORT_NUM_7  = 7,  /*!< PORT7, input and output */
-        PORT_NUM_8  = 8,  /*!< PORT8, input and output */
-        PORT_NUM_9  = 9,  /*!< PORT9, input and output */
-        PORT_NUM_10 = 10, /*!< PORT10, input and output */
-        PORT_NUM_11 = 11, /*!< PORT11, input and output */
-        PORT_NUM_12 = 12, /*!< PORT12, input and output */
-        PORT_NUM_13 = 13, /*!< PORT13, input and output */
-        PORT_NUM_14 = 14, /*!< PORT14, input and output */
-        PORT_NUM_15 = 15, /*!< PORT15, input and output */
-        PORT_NUM_16 = 16, /*!< PORT16, input and output */
-        PORT_NUM_17 = 17, /*!< PORT17, input and output */
-        PORT_NUM_18 = 18, /*!< PORT18, input and output */
-        PORT_NUM_19 = 19, /*!< PORT19, input and output */
-        PORT_NUM_20 = 20, /*!< PORT20, input and output */
-        PORT_NUM_21 = 21, /*!< PORT21, input and output */
-        PORT_NUM_22 = 22, /*!< PORT22, input and output */
-        PORT_NUM_23 = 23, /*!< PORT23, input and output */
-        PORT_NUM_25 = 25, /*!< PORT25, input and output */
-        PORT_NUM_26 = 26, /*!< PORT26, input and output */
-        PORT_NUM_27 = 27, /*!< PORT27, input and output */
-        PORT_NUM_28 = 28, /*!< PORT28, input and output */
-        PORT_NUM_29 = 29, /*!< PORT29, input and output */
-        PORT_NUM_30 = 30, /*!< PORT30, input and output */
-        PORT_NUM_31 = 31, /*!< PORT31, input and output */
-        PORT_NUM_32 = 32, /*!< PORT32, input and output */
-        PORT_NUM_33 = 33, /*!< PORT33, input and output */
-        PORT_NUM_34 = 34, /*!< PORT34, input mode only */
-        PORT_NUM_35 = 35, /*!< PORT35, input mode only */
-        PORT_NUM_36 = 36, /*!< PORT36, input mode only */
-        PORT_NUM_37 = 37, /*!< PORT37, input mode only */
-        PORT_NUM_38 = 38, /*!< PORT38, input mode only */
-        PORT_NUM_39 = 39, /*!< PORT39, input mode only */
-        PORT_NUM_MAX,
-    } port_num_t;
+/**
+ * @brief Port number
+ */
+#define PORT_NUM_NC  ((Port_PinType) - 1)
+#define PORT_NUM_0   ((Port_PinType) 0)
+#define PORT_NUM_1   ((Port_PinType) 1)
+#define PORT_NUM_2   ((Port_PinType) 2)
+#define PORT_NUM_3   ((Port_PinType) 3)
+#define PORT_NUM_4   ((Port_PinType) 4)
+#define PORT_NUM_5   ((Port_PinType) 5)
+#define PORT_NUM_6   ((Port_PinType) 6)
+#define PORT_NUM_7   ((Port_PinType) 7)
+#define PORT_NUM_8   ((Port_PinType) 8)
+#define PORT_NUM_9   ((Port_PinType) 9)
+#define PORT_NUM_10  ((Port_PinType) 10)
+#define PORT_NUM_11  ((Port_PinType) 11)
+#define PORT_NUM_12  ((Port_PinType) 12)
+#define PORT_NUM_13  ((Port_PinType) 13)
+#define PORT_NUM_14  ((Port_PinType) 14)
+#define PORT_NUM_15  ((Port_PinType) 15)
+#define PORT_NUM_16  ((Port_PinType) 16)
+#define PORT_NUM_17  ((Port_PinType) 17)
+#define PORT_NUM_18  ((Port_PinType) 18)
+#define PORT_NUM_19  ((Port_PinType) 19)
+#define PORT_NUM_20  ((Port_PinType) 20)
+#define PORT_NUM_21  ((Port_PinType) 21)
+#define PORT_NUM_22  ((Port_PinType) 22)
+#define PORT_NUM_23  ((Port_PinType) 23)
+#define PORT_NUM_24  ((Port_PinType) 24)
+#define PORT_NUM_25  ((Port_PinType) 25)
+#define PORT_NUM_26  ((Port_PinType) 26)
+#define PORT_NUM_27  ((Port_PinType) 27)
+#define PORT_NUM_28  ((Port_PinType) 28)
+#define PORT_NUM_29  ((Port_PinType) 29)
+#define PORT_NUM_30  ((Port_PinType) 30)
+#define PORT_NUM_31  ((Port_PinType) 31)
+#define PORT_NUM_32  ((Port_PinType) 32)
+#define PORT_NUM_33  ((Port_PinType) 33)
+#define PORT_NUM_34  ((Port_PinType) 34)
+#define PORT_NUM_35  ((Port_PinType) 35)
+#define PORT_NUM_36  ((Port_PinType) 36)
+#define PORT_NUM_37  ((Port_PinType) 37)
+#define PORT_NUM_38  ((Port_PinType) 38)
+#define PORT_NUM_39  ((Port_PinType) 39)
+#define PORT_NUM_MAX ((Port_PinType) 40)
     /* Public macros ------------------------------------------------------ */
     /* Public variables --------------------------------------------------- */
     /* Public function prototypes ----------------------------------------- */

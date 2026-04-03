@@ -15,5 +15,12 @@
             "strings": "off"
         },
         "editor.snippetSuggestions": "top"
+    },
+    "files.associations": {
+        "*.arxml": "xml",
+        "i2c.h": "c",
+        "std_types.h": "c",
+        "port_types.h": "c",
+        "port_num.h": "c"
     }
 }
