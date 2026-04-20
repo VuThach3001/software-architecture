@@ -824,7 +824,7 @@ flowchart TD
 
   subgraph N[Notification]
     D[Only internal result updated]
-    E[Call I2C_SeqEndNotification(seq, result)]
+    E[Call I2C_SeqEndNotification callback]
   end
 
   subgraph X[Exit]
