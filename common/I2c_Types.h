@@ -102,18 +102,33 @@ typedef enum
 } I2C_AsyncModeType;
 
 /**
+ * @brief [ECUC_I2c_00016] Definition of I2C HW unit operating mode
+ * @details Specifies whether the I2C hardware unit operates as Controller (Master)
+ *          or as Target (Slave).
+ */
+typedef enum
+{
+    I2C_HW_UNIT_MODE_CONTROLLER, /* HW unit in Controller (Master) mode – default */
+    I2C_HW_UNIT_MODE_TARGET,     /* HW unit in Target  (Slave)  mode              */
+} I2C_HwUnitModeType;
+
+/**
  * @brief TRACE[CP_SWS_I2C_00801]: This type of external data structure shall contain the initialization data
  * for the I2C Driver
  * @details The contents of the initialization data structure are I2C specific
  */
 typedef struct
 {
-    I2C_HwUnitType    hwUnit;     // I2C hardware unit identifier for the specific micro-controller
-    uint32            baudRate;   // I2C communication speed in bits per second
-    I2C_AsyncModeType asyncMode;  // Asynchronous mode (polling or interrupt)
-    I2C_PortNumType   i2c_port;   // I2C port number, `-1` for auto-detection based on the hardware unit
-    Port_PinType      scl_pin;    // GPIO pin number for SCL line
-    Port_PinType      sda_pin;    // GPIO pin number for SDA line
+    I2C_HwUnitType     hwUnit;          // I2C hardware unit identifier for the specific micro-controller
+    uint32             baudRate;        // I2C communication speed in bits per second
+    I2C_AsyncModeType  asyncMode;       // Asynchronous mode (polling or interrupt)
+    I2C_PortNumType    i2c_port;        // I2C port number, `-1` for auto-detection based on the hardware unit
+    Port_PinType       scl_pin;         // GPIO pin number for SCL line
+    Port_PinType       sda_pin;         // GPIO pin number for SDA line
+    I2C_HwUnitModeType hwUnitMode;      /* [ECUC_I2c_00016] Controller or Target operating mode   */
+    boolean            targetListening; /* [ECUC_I2c_00019] TRUE: always listen (permanent),
+                                         *                  FALSE: on-demand via I2C_StartListening */
+    I2C_AddressType deviceAddress;      /* Own I2C address when operating in Target mode           */
 } I2C_ConfigType;
 
 /* Public macros ------------------------------------------------------ */

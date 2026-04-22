@@ -40,14 +40,14 @@ void I2C_DeInit(void);
  * @brief TRACE[CP_SWS_I2C_00822] Definition of API function I2C_SetupEB
  * @details Service to setup the buffers and the length of data for the EB I2C Driver Job specified
  * @param JobId Job identifier for the I2C transmission.
- * @param SlaveAddr Address of the I2C slave device to be accessed.
+ * @param NodeAddress Address of the I2C slave device to be accessed.
  * @param TxDataBufferPtr Pointer to the transmit data buffer.
  * @param RxDataBufferPtr Pointer to the receive data buffer.
  * @param Length Number of data elements to be transmitted/received.
  * @return Std_ReturnType Returns E_OK if the setup of the I2C job was successful, E_NOT_OK otherwise.
  */
 Std_ReturnType I2C_SetupEB(I2C_JobType           JobId,
-                           I2C_AddressType       SlaveAddr,
+                           I2C_AddressType       NodeAddress,
                            I2C_DataConstPtrType *TxDataBufferPtr,
                            I2C_DataPtrType      *RxDataBufferPtr,
                            I2C_NumberOfDataType  Length);
@@ -70,6 +70,34 @@ Std_ReturnType I2C_AsyncTransmit(I2C_SequenceType SequenceId);
  * rejected.
  */
 Std_ReturnType I2C_SyncTransmit(I2C_SequenceType SequenceId);
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00832] Definition of configurable interface (*I2C_SeqEndNotifica
+tion)
+ * @details Callback routine provided by the user for each Sequence to notify the caller that a Sequence
+has been finished.
+ * @param SequenceId Sequence which is finished.
+ * @param Result Status of currently executed sequence.
+ */
+extern void (*I2C_SeqEndNotification)(I2C_SequenceType SequenceId, I2C_SequenceResultType Result);
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00828]  Definition of API function I2C_StartListening
+ * @details Makes a target channel available for processing requests (addressing). When called, the target
+channel becomes available for starting incoming or outgoing transfers.
+ * @param SequenceId Sequence used for data exchange.
+ * @return Std_ReturnType Returns E_OK if success, E_NOT_OK if the request is
+ * rejected.
+ */
+Std_ReturnType I2C_StartListening(I2C_SequenceType SequenceId);
+
+/**
+ * @brief TRACE[CP_SWS_I2C_00834] Definition of scheduled function I2C_MainFunction
+ * @details Makes a target channel available for processing requests (addressing). When called, the target
+channel becomes available for starting incoming or outgoing transfers.
+ */
+void I2C_MainFunction (void);
+
 
 /* -------------------------------------------------------------------- */
 #endif /* __I2C_H */
